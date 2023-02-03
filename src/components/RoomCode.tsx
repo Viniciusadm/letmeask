@@ -8,8 +8,9 @@ type RoomCodeProps = {
 
 export function RoomCode(props: RoomCodeProps) {
     function copyRoomCodeToClipboard() {
-        navigator.clipboard.writeText(props.code ?? '').then(() => {
-            alert('Código da sala copiado!');
+        const url = window.location.origin + '/rooms/' + props.code;
+        navigator.clipboard.writeText(url).then(() => {
+            alert('URL copiado com sucesso!');
         });
     }
 
