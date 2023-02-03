@@ -6,11 +6,16 @@ import { Room } from "./pages/Room";
 import { AdminRoom } from "./pages/AdminRoom";
 
 import { AuthContextProvider } from "./contexts/AuthContext";
+import {Toaster} from "react-hot-toast";
 
 function App() {
 
     return (
         <BrowserRouter>
+            <Toaster
+                position="top-right"
+                reverseOrder={false}
+            />
             <AuthContextProvider>
                 <Routes>
                     <Route path="/" element={<Home />} />

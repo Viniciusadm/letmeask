@@ -9,6 +9,7 @@ import { useAuth } from "../hooks/useAuth";
 import {FormEvent, useState} from "react";
 import { database } from "../services/firebase";
 import { ref, onValue } from "firebase/database";
+import toast from "react-hot-toast";
 export function Home() {
     const history = useNavigate();
     const { user, signInWithGoogle } = useAuth();
@@ -34,12 +35,12 @@ export function Home() {
 
         onValue(roomRef, (snapshot) => {
             if (!snapshot.exists()) {
-                alert('Room does not exist.');
+                toast.success('A sala não existe.');
                 return;
             }
 
             if (snapshot.val().endedAt) {
-                alert('Room already closed.');
+                toast.success('A sala já foi encerrada.');
                 return;
             }
 

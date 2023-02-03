@@ -15,6 +15,7 @@ import { useRoom } from "../hooks/useRoom";
 import { Button } from "../components/Button";
 import { database } from "../services/firebase";
 import { ref, remove, update } from "firebase/database";
+import toast from "react-hot-toast";
 
 type RoomParams = {
     id: string;
@@ -50,7 +51,7 @@ export function AdminRoom() {
         update(ref(database, `rooms/${roomId}`), {
             endedAt: new Date(),
         }).then(() => {
-            alert('Sala encerrada com sucesso!');
+            toast.success('Sala encerrada com sucesso!');
             navigate('/');
         });
     }
