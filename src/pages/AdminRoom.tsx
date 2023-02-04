@@ -65,6 +65,11 @@ export function AdminRoom() {
                     </Link>
                     <div>
                         <RoomCode code={roomId} />
+                        <Link to={`/rooms/${roomId}`}>
+                            <Button isOutlined>
+                                Ir para sala
+                            </Button>
+                        </Link>
                         <Button isOutlined onClick={handleEndRoom}>
                             Encerrar sala
                         </Button>
